@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fitness Tracker</title>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4CAF50">
+
+</head>
+<style>
+    body {
+        font-family: Arial;
+        text-align: center;
+        background: #f2f2f2;
+    }
+
+    input {
+        padding: 8px;
+    }
+
+    button {
+        padding: 8px;
+        background: green;
+        color: white;
+    }
+</style>
+<script>
+    function addActivity() {
+
+        let activity = document.getElementById("activity").value;
+
+        let li = document.createElement("li");
+
+        li.textContent = activity;
+
+        document.getElementById("list").appendChild(li);
+
+    }
+</script>
+
+<body>
+
+    <h1>My Fitness App</h1>
+
+    <input type="text" id="activity" placeholder="Enter activity">
+    <button onclick="addActivity()">Add</button>
+
+    <ul id="list"></ul>
+
+    
+<script>
+
+    if ("serviceWorker" in navigator) {
+
+        navigator.serviceWorker.register("service-worker.js")
+            .then(() => {
+                console.log("Service Worker Registered");
+            });
+
+    }
+
+</script>
+
+</body>
+
+</html>
